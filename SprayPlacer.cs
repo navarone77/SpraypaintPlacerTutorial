@@ -25,7 +25,7 @@ public class SprayPlacer : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();//comment out if you dont have audiosource setup
     }
 
     private void Update()
@@ -52,6 +52,6 @@ public class SprayPlacer : MonoBehaviour
         var decalObj = Instantiate(decal, raycastHit.point, Quaternion.LookRotation(-raycastHit.normal));
         decalObj.GetComponent<DecalProjector>().size = size;
         decalObj.GetComponent<DecalProjector>().pivot = new Vector3(0, 0, size.z * .45f);
-        audioSource.PlayOneShot(spraySFX, 0.7f);
+        audioSource.PlayOneShot(spraySFX, 0.7f); //optional, comment out if you dont have soundclip
     }
 }
